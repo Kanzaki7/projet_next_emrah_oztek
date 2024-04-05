@@ -34,3 +34,14 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+Références : 
+- Rounded Corners, Fold Corner: https://codepen.io/SamanRohanizade/pen/opgdKZ
+- Fade-in Animation : https://www.youtube.com/watch?v=5yl75eM0Y4A
+- Stamp Animation : https://codepen.io/marlafsan/pen/oBawrv
+- Like Button Animation : https://codepen.io/uchardon/pen/pQvZWP
+- Carousel 3D : https://codesandbox.io/p/sandbox/react-carousel-3d-9x3wt?file=%2Fsrc%2Fstyles.css%3A2%2C3-2%2C22
+- Wood border : https://gist.github.com/jimkang/6a9df6c0b65effc7c7aa6885e526ceb1
+- Animation on Scroll : https://www.youtube.com/watch?v=r1wDGIKmX6s
+- Button darkMode : https://uiverse.io/abdullah-sameh/odd-fly-7

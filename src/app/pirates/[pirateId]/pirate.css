@@ -1,0 +1,447 @@
+.pirate {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+}
+
+.divWanted {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+}
+
+.wantedPirate {
+    width: 450px;
+    height: 590px;
+    /* border: 2px solid black; */
+    background-image: url("/assets/img/wanted.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    border-top-left-radius: 250px 15px;
+    border-bottom-left-radius: 20px 115px;
+    border-bottom-right-radius: 105px 15px;
+    overflow: hidden;
+    /* cursor: pointer; */
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset, rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+    animation: fade-up 1.7s;
+    transition: filter 200ms linear, ease-in-out .5s;
+}
+.wantedPirate::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-style: solid;
+    border-width: .8rem;
+    border-color: #d0caa3e6 #d0caa3e6 #887c66 #887c66;
+    transition: all 0.6s;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+    animation: fade-up 1.7s;
+}
+@keyframes fade-up {
+    0% {
+        opacity: 1;
+        border-width: 22rem;
+    }
+    100% {
+        opacity: 1;
+        border-width: .8rem;
+    }
+}
+
+.imgPersoPirate {
+    width: 370px;
+    height: 270px;
+    position: absolute;
+    top: 19%;
+    left: 9%;
+}
+
+.nameWantedPirate {
+    position: absolute;
+    top: 71%;
+    left: 8%;
+    font-size: 34px;
+    font-weight: bold;
+    font-family: Playfair;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 375px;
+    height: 65px;
+    /* border: 1px solid black; */
+    text-align: center;
+    color: #534328;
+}
+
+.bountyWantedPirate {
+    position: absolute;
+    top: 85%;
+    left: 17%;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: Heart;
+    color: #534328;
+}
+
+.divPersoDesc {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    /* border: 2px solid red; */
+    animation: fade-upBis 1.7s;
+    transition: filter 200ms linear, ease-in-out .6s;
+}
+
+@keyframes fade-upBis {
+    0% {
+        opacity: 0;
+        transform: translateY(70px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.desc {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+    font-family: Playfair;
+    
+}
+
+.nameStar {
+    width: 85%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid black; */
+    margin-bottom: 25px;
+}
+
+.star {
+    cursor: pointer;
+    stroke:#ff0;
+    fill:transparent;
+      stroke-width:10;
+    .star {
+      fill:transparent;
+    }
+    .starEX {
+      transform: scale(0);
+      transform-origin: 50% 50%;
+      transform-box: border-box;
+      fill:#ff0;
+      opacity:1;
+      transition:none;
+    }
+  }
+  .starOn {
+    .star {
+      fill:#ff0;
+      transition: fill .4s ease .2s;
+    }
+    .starEX {
+      transform: scale(2);
+      opacity:0;
+      transition: transform, opacity;
+        transition-duration: .6s, .4s;
+        transition-delay: 0s, .2s;
+    }
+  }
+  
+  svg {
+    overflow:visible;
+    width:70px;
+  }
+
+.starDiv {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.nameDescLight {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: Playfair;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+.nameDescDark {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: Playfair;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.bountyDescLight {
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: Heart;
+    color: black;
+}
+.bountyDescDark {
+    font-size: 35px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-family: Heart;
+    color: white;
+}
+
+.berry{
+    width: 50px;
+}
+
+.crewLight {
+    font-size: 25px;
+    font-family: Heart;
+    color: dark;
+}
+.crewDark {
+    font-size: 25px;
+    font-family: Heart;
+    color: white;
+}
+
+.demonLight {
+    font-size: 25px;
+    font-family: Heart;
+    color: black;
+}
+.demonDark {
+    font-size: 25px;
+    font-family: Heart;
+    color: white;
+}
+.jobLight {
+    font-size: 25px;
+    font-family: Heart;
+    color: black
+}
+.jobDark {
+    font-size: 25px;
+    font-family: Heart;
+    color: white
+}
+
+.gras {
+    font-weight: bold;
+    font-family: Playfair;
+}
+
+.scroll {
+    width: 180px;
+    height: 200px;
+    background-image: url("/assets/img/scroll.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+.moinsUn  {
+    position: absolute;
+    top: 4%;
+    left: 40%;
+    font-size: 37px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    width: 37px;
+    height: 33px;
+    background-color: rgb(127, 15, 15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.counter {
+    position: absolute;
+    top: 33%;
+    left: 44%;
+    font-size: 45px;
+}
+
+.plusUn {
+    position: absolute;
+    top: 70%;
+    left: 41%;
+    font-size: 37px;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
+    width: 37px;
+    height: 33px;
+    background-color: rgb(17, 17, 123);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+}
+
+.recrute {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    gap: 100px;
+}
+
+.nbrJours {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+
+}
+
+.textJoursLight {
+    font-family: Playfair;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: black;
+}
+.textJoursDark {
+    font-family: Playfair;
+    font-weight: bold;
+    font-size: 25px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.parchment{
+    width: 190px;
+    height: 250px;
+    background-image: url("/assets/img/parchment.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    rotate: 90deg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.recrutez {
+    rotate: -90deg;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Playfair;
+    width: 250px;
+    height: 55px;
+    /* border: 1px solid black; */
+    text-align: center;
+    color: black;
+    /* transition: all ease-in-out 1s;
+    animation: textanimate .7s alternate infinite;
+    cursor: pointer; */
+}
+
+.parchment:hover .recrutez {
+    transition: all ease-in-out 1s;
+    animation: textanimate .7s alternate infinite;
+    cursor: pointer;
+}
+@keyframes textanimate {
+	0% {
+		text-shadow: 0 0 0px rgba(155, 31, 31, 0);
+	}
+
+	100% {
+		
+        text-shadow: 0 0 5px rgb(123, 9, 9);
+	}
+
+
+}
+
+/* footer */
+
+.footerHome {
+    color: #534328;
+    font-family: PlayfairBold;
+    width: 102vw;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    /* background-color: rgb(20, 24, 19); */
+    /* border: 2px solid black; */
+    gap: 70px;
+    margin: 0;
+    background-image: url("/assets/img/scrollNav.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 10% 12%;
+    border-top-left-radius: 250px 15px;
+    border-bottom-left-radius: 20px 115px;
+    border-bottom-right-radius: 105px 15px;
+    box-shadow: rgb(0, 0, 0) 0px 25px 20px -20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.footDiv{
+    width: 19%;
+    /* height: 70%; */
+    /* border: 2px solid blue; */
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+    gap: 10px;
+  } 
+  
+  .footertitle {
+    font-size: 30px;
+    margin-bottom: 10px;
+  }
+  
+  .divFootImg {
+    width: 100%;
+    height: 60%;
+  }
+  
+  .divFootImg img {
+    width: 175px;
+    height: 130px;
+  }
+  
+  /* end footer */

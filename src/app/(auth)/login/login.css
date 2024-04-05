@@ -1,0 +1,116 @@
+@font-face {
+    font-family: Heart;
+    src: url(/assets/fonts/Always\ in\ my\ Heart/Heart.ttf);
+}
+@font-face {
+    font-family: Playfair;
+    src: url(/assets/fonts/Playfair\ Display/PlayfairDisplay-Regular.ttf);
+}
+@font-face {
+    font-family: PlayfairBlack;
+    src: url(/assets/fonts/Playfair\ Display/PlayfairDisplay-Black.ttf);
+}
+@font-face {
+    font-family: PlayfairBold;
+    src: url(/assets/fonts/Playfair\ Display/PlayfairDisplay-Bold.ttf);
+}
+
+
+.login {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("/assets/img/logIn.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: Playfair;
+    color: #534328;
+    font-size: 19px;
+    font-weight: bold;
+    animation: fade-downLog 1.2s;
+    transition: filter 200ms linear, ease-in-out .6s;
+    
+}
+
+@keyframes fade-downLog {
+    0% {
+        opacity: 0;
+        transform: translateY(-400px) scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) scale(1);
+    }
+}
+
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.connecteToi {
+    /* position: absolute;
+    top: 110%;
+    left: -35%; */
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Playfair;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 250px;
+    height: 55px;
+    /* border: 1px solid black; */
+    text-align: center;
+    color: #534328;
+    cursor: pointer;
+}
+.connecteToiTrue {
+    /* position: absolute;
+    top: 110%;
+    left: -35%; */
+    font-size: 24px;
+    font-weight: bold;
+    font-family: Playfair;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    width: 250px;
+    height: 55px;
+    /* border: 1px solid black; */
+    text-align: center;
+    color: #534328;
+    transition: all ease-in-out 1s;
+    animation: textanimate .7s alternate infinite;
+    cursor: pointer;
+}
+
+
+@keyframes textanimate {
+	0% {
+		text-shadow: 0 0 0px rgba(155, 31, 31, 0);
+	}
+
+	100% {
+		
+        text-shadow: 0 0 5px rgb(123, 9, 9);
+	}
+
+
+}
+
+.lien {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.lien:hover {
+    color: white;
+}
