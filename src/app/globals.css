@@ -30,6 +30,7 @@
     background-image: url("/assets/img/dark-wood.png");
     /* background-color: #052429; */
     background-color: #e4b015;
+    transition: ease-in-out .5s;
 }
 .darkBody {
     width: 100vw;
@@ -46,6 +47,7 @@
     background-image: url("/assets/img/dark-wood.png");
     background-color: #052429;
     /* background-color: #e4b015; */
+    transition: ease-in-out .5s;
 }
 
 
@@ -510,7 +512,7 @@ p {
   
   /* end footer */
 
-  .navRes {
+  /* .navRes {
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -520,4 +522,4 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     z-index: 3;
-  }
+  } */
