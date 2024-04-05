@@ -5,12 +5,19 @@ import { useSelector, useDispatch } from 'react-redux'
 import imgPerso from '../imgPerso.json'
 import { useState, useEffect } from 'react'
 import Loading from '../loading'
+import Link from 'next/link'
 
 
 
 export default function Favoris() {
 
+    const tableau = useSelector((state) => state.missions.value)
+    const favoris = useSelector((state) => state.favorite.value)
+    const connexion = useSelector((state) => state.auth.connexion)
+    const user = useSelector((state) => state.auth.value)
+    const [theClass, setTheClass] = useState("home")
     const favorite = useSelector((state) => state.favorite.value)
+    const burger = useSelector((state) => state.burger.value)
     console.log(favorite);
     const dispatch = useDispatch()
 
@@ -30,11 +37,26 @@ export default function Favoris() {
             } else {
                 setDataState(false)
             }
-        }, 1000);
+        }, 3000);
     }, [])
 
     return(
+        dataState === true ?
         <div className='favorite'>
+                                <div className={burger === false ? "navRes" : "navResActive"}>
+                        <div className='navPagesBurger'>
+                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                        {connexion === true &&
+                                            <div className='hiddenLinks'>
+                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                            </div>
+                                        }
+                                        {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                                        {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                                    </div>
+                        </div>
             <div className='favoriteMapping'>
             {dataState === true ?
                 favorite.filter(l => l.favorite === true).map((pers, index) => (
@@ -81,6 +103,6 @@ export default function Favoris() {
                 <div>East Blue</div>
             </div>
         </div>
-        </div>
+        </div> : <Loading/>
     )
 }

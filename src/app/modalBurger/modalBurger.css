@@ -1,0 +1,16 @@
+.navRes {
+    width: 100vw;
+    height: 100vh;
+    /* background-image: url("/assets/img/navRes.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
+    background-color: black;
+    display: none;
+}
+
+@media screen and (min-width: 425px) and (max-width: 767) {
+    .navRes {
+        display: block;
+    }
+} */

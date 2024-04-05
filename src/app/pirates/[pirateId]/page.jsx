@@ -11,6 +11,7 @@ import Image from "next/image";
 import { addCart } from "@/lib/features/MissionsSlice";
 import { addTotal } from "@/lib/features/TotalSlice";
 import { addFavorite, deleteFavorite } from "@/lib/features/FavoriteSlice";
+import Link from "next/link";
 
 
 export default function Pirate({ params }) {
@@ -18,8 +19,14 @@ export default function Pirate({ params }) {
 
     const { pirateId } = params;
 
+    const [theClass, setTheClass] = useState("home")
+
     const connexion = useSelector((state) => state.auth.connexion)
     const theme = useSelector((state) => state.theme.value)
+    const burger = useSelector((state) => state.burger.value)
+    const tableau = useSelector((state) => state.missions.value)
+    const favoris = useSelector((state) => state.favorite.value)
+    const user = useSelector((state) => state.auth.value)
 
     const dispatch = useDispatch()
 
@@ -27,6 +34,8 @@ export default function Pirate({ params }) {
     const [dataState, setDataState] = useState(false)
 
     const [nbrJours, setNbrJours] = useState(1)
+    const [modal, setModal] = useState(false)
+    const [modalFavori, setModalFavori] = useState(false)
 
 
     useEffect(() => {
@@ -54,6 +63,9 @@ export default function Pirate({ params }) {
     let addPirate = ({name, bounty, bountyString, quantity, total}) => {
         dispatch(addCart({name, bounty, bountyString, quantity, total}))
         dispatch(addTotal(total))
+        setTimeout(() => {
+            setModal(true)
+        }, 1000);
     }
 
     let subNbrJours = () => {
@@ -68,10 +80,62 @@ export default function Pirate({ params }) {
 
     let changeFav = ({id, name, bounty, favorite}) => {
         dispatch(addFavorite({id, name, bounty, favorite}))
+        setTimeout(() => {
+            setModalFavori(true)
+        }, 1000);
     }
 
     return(
         <div className="pirates">
+            {modal === true && 
+                <div className="modalPseudo">
+            <div className="modal-contentPseudo">
+                <div className="texteModalPseudo">
+                    Une bouteille à la mer a été envoyé à <span className="recrue">{perso.name}</span> !
+                </div>
+                <div className="bottleModal">
+                    <img src="/assets/img/modalBottle.png" alt="" />
+                </div>
+                <div type="btn" className="btnModalPseudo" id="no" onClick={()=>setModal(false)}>
+                    Fermer
+                </div>
+            </div>
+        </div>
+            }
+            {modalFavori === true && 
+                <div className="modalPseudo">
+            <div className="modal-contentPseudo">
+                <div className="texteModalPseudo">
+                    <span className="recrue">{perso.name}</span> a été ajouté(e) dans les favoris !
+                </div>
+                <div className="bottleModal">
+                    <svg className={perso.favorite === true ? "starOn" : "star"} viewBox='0 0 100 100' onClick={()=>dispatch(changeFav({id: perso.id, name: perso.name, bounty: perso.bounty, favorite: true}))}>
+                                                <g className="starOn">
+                                                    <path d="M 50 4 61.23 38.55 97.55 38.55 68.16 59.9 79.39 94.45 50 73.1 20.6 94.45 31.84 59.9 2.45 38.55 38.77 38.55 z" />
+                                                    <path class="starEX" d="M 50 4 61.23 38.55 97.55 38.55 68.16 59.9 79.39 94.45 50 73.1 20.6 94.45 31.84 59.9 2.45 38.55 38.77 38.55 z" />
+                                                </g>
+                    </svg>
+                </div>
+                <div type="btn" className="btnModalPseudo" id="no" onClick={()=>setModalFavori(false)}>
+                    Fermer
+                </div>
+            </div>
+        </div>
+            }
+              <div className={burger === false ? "navRes" : "navResActive"}>
+                <div className='navPagesBurger'>
+                                <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                                <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                {connexion === true &&
+                                    <div className='hiddenLinks'>
+                                        <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                                        <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                    </div>
+                                }
+                                {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                                {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                            </div>
+                </div>
             {/* <p>{perso.name}</p> */}
             {dataState === true ? (
                 <div className="pirate">

@@ -5,8 +5,16 @@ import { useRouter } from 'next/navigation'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { trueUser, falseUser, deleteUser } from '@/lib/features/AuthSlice'
+import Link from 'next/link'
 
 export default function Login() {
+
+    const [theClass, setTheClass] = useState("home")
+    const tableau = useSelector((state) => state.missions.value)
+    const favoris = useSelector((state) => state.favorite.value)
+
+    const theme = useSelector((state) => state.theme.value)
+    const burger = useSelector((state) => state.burger.value)
 
     const user = useSelector((state) => state.auth.value)
     const connexion = useSelector((state) => state.auth.connexion)
@@ -54,6 +62,20 @@ export default function Login() {
 
     return(
         <div className='login'>
+                      <div className={burger === false ? "navRes" : "navResActive"}>
+                        <div className='navPagesBurger'>
+                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                        {connexion === true &&
+                                            <div className='hiddenLinks'>
+                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                            </div>
+                                        }
+                                        {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                                        {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                                    </div>
+                        </div>
         {
             connexion === false &&
             <div className='formLogin'>

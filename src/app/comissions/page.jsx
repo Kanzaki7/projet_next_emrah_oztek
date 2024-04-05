@@ -5,12 +5,14 @@ import { useDispatch, useSelector, useStore } from 'react-redux'
 import { deleteCart, checkOut, plusUn, moinsUn } from "@/lib/features/MissionsSlice";
 import { addTotal, subTotal, removeTotal } from "@/lib/features/TotalSlice";
 import { useState } from "react";
+import Link from "next/link";
 
-export default function Panier(props) {
+export default function Panier() {
 
 const tableau = useSelector((state) => state.missions.value)
 const total = useSelector((state) => state.total.value)
 const theme = useSelector((state) => state.theme.value)
+const burger = useSelector((state) => state.burger.value)
 console.log(tableau);
 const dispatch = useDispatch();
 const [mission, setMission] = useState("")
@@ -21,6 +23,10 @@ const [display, setDisplay] = useState(false)
 const [stamp, setStamp] = useState("")
 const [form, setForm] = useState(false)
 const [state, setState] = useState(-1)
+const [theClass, setTheClass] = useState("home")
+const connexion = useSelector((state) => state.auth.connexion)
+const favoris = useSelector((state) => state.favorite.value)
+const user = useSelector((state) => state.auth.value)
 
 
 let deleteAll = (index) => {
@@ -73,6 +79,20 @@ let soummetre = () => {
 
 return(
     <div className='panier'>
+<div className={burger === false ? "navRes" : "navResActive"}>
+                        <div className='navPagesBurger'>
+                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                        {connexion === true &&
+                                            <div className='hiddenLinks'>
+                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                            </div>
+                                        }
+                                        {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                                        {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                                    </div>
+                        </div>
         <div className='cartTab'>
             {
                 tableau.map((tab, index) => (

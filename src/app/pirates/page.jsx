@@ -29,6 +29,14 @@ export default function Pirates() {
     const [crew, setCrew] = useState("")
     const [status, setStatus] = useState(-1)
 
+    const theme = useSelector((state) => state.theme.value)
+    const burger = useSelector((state) => state.burger.value)
+    const tableau = useSelector((state) => state.missions.value)
+    const favoris = useSelector((state) => state.favorite.value)
+    const user = useSelector((state) => state.auth.value)
+
+    const [theClass, setTheClass] = useState("home")
+
     useEffect(() => {
         fetch(`https://api.api-onepiece.com/v2/characters/fr`)
             .then((response) => response.json())
@@ -44,7 +52,7 @@ export default function Pirates() {
             } else {
                 setDataState(false)
             }
-        }, 1000);
+        }, 3000);
     }, [])
 
     useEffect(() => {
@@ -128,7 +136,22 @@ export default function Pirates() {
     // }
 
     return(
+        dataState === true ?
         <div className="pirates">
+        <div className={burger === false ? "navRes" : "navResActive"}>
+            <div className='navPagesBurger'>
+                            <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                            <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                            {connexion === true &&
+                                <div className='hiddenLinks'>
+                                    <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                                    <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                </div>
+                            }
+                            {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                            {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                        </div>
+            </div>
             <div className='searchBar'>
                 <input type="text" className='search' placeholder="Nom ou profession..." value={search} onChange={(e)=>setSearch(e.target.value)}/>
                 <div className='filter'>
@@ -211,6 +234,6 @@ export default function Pirates() {
                 <div>East Blue</div>
             </div>
         </div>
-        </div>
+        </div> : <Loading/>
     )
 }

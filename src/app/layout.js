@@ -1,5 +1,6 @@
 import Body from "./Body/Body"
 import StoreProvider from "./StoreProvider"
+import './Body/body.css'
 
 
 export const metadata = {

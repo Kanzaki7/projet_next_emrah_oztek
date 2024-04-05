@@ -8,14 +8,18 @@ import { useState } from 'react'
 
 export default function Register() {
 
-    const user = useSelector((state) => state.auth.value)
-    console.log(user);
+    // console.log(user);
 
     const dispatch = useDispatch()
 
     const [inputNom, setInputNom] = useState("")
     const [inputPassword, setInputPassword] = useState("")
     const [account, setAccount] = useState("")
+    const tableau = useSelector((state) => state.missions.value)
+    const favoris = useSelector((state) => state.favorite.value)
+    const connexion = useSelector((state) => state.auth.connexion)
+    const user = useSelector((state) => state.auth.value)
+    const [theClass, setTheClass] = useState("home")
 
     const route = useRouter()
 

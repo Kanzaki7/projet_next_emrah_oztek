@@ -523,3 +523,476 @@ p {
     background-repeat: no-repeat;
     z-index: 3;
   } */
+
+  /* début loader */
+
+
+  .loading {
+    /* background-color:#000000; */
+    /* overflow:hidden; */
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    /* border-radius: 50%; */
+    /* transition: ease-in-out .5s; */
+  }
+  .pl {
+    display: block;
+    width: 9.375em;
+    height: 9.375em;
+  }
+  
+  .pl__arrows,
+  .pl__ring-rotate,
+  .pl__ring-stroke,
+  .pl__tick {
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+  }
+  
+  .pl__arrows {
+    animation-name: arrows42;
+    transform: rotate(45deg);
+    transform-origin: 16px 52px;
+  }
+  
+  .pl__ring-rotate,
+  .pl__ring-stroke {
+    transform-origin: 80px 80px;
+  }
+  
+  .pl__ring-rotate {
+    animation-name: ringRotate42;
+  }
+  
+  .pl__ring-stroke {
+    animation-name: ringStroke42;
+    transform: rotate(-45deg);
+  }
+  
+  .pl__tick {
+    animation-name: tick42;
+  }
+  
+  .pl__tick:nth-child(2) {
+    animation-delay: -1.75s;
+  }
+  
+  .pl__tick:nth-child(3) {
+    animation-delay: -1.5s;
+  }
+  
+  .pl__tick:nth-child(4) {
+    animation-delay: -1.25s;
+  }
+  
+  .pl__tick:nth-child(5) {
+    animation-delay: -1s;
+  }
+  
+  .pl__tick:nth-child(6) {
+    animation-delay: -0.75s;
+  }
+  
+  .pl__tick:nth-child(7) {
+    animation-delay: -0.5s;
+  }
+  
+  .pl__tick:nth-child(8) {
+    animation-delay: -0.25s;
+  }
+  
+  /* Animations */
+  @keyframes arrows42 {
+    from {
+      transform: rotate(45deg);
+    }
+  
+    to {
+      transform: rotate(405deg);
+    }
+  }
+  
+  @keyframes ringRotate42 {
+    from {
+      transform: rotate(0);
+    }
+  
+    to {
+      transform: rotate(720deg);
+    }
+  }
+  
+  @keyframes ringStroke42 {
+    from,
+      to {
+      stroke-dashoffset: 452;
+      transform: rotate(-45deg);
+    }
+  
+    50% {
+      stroke-dashoffset: 169.5;
+      transform: rotate(-180deg);
+    }
+  }
+  
+  @keyframes tick42 {
+    from,
+      3%,
+      47%,
+      to {
+      stroke-dashoffset: -12;
+    }
+  
+    14%,
+      36% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* fin loader */
+
+  /* page error */
+  
+  .errorDiv {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .messageLight {
+    font-size: 55px;
+    color: black;
+  }
+  .messageDark {
+    font-size: 55px;
+    color: white;
+  }
+
+  .error{
+    width: 40%;
+    height: 70%;
+    border-radius: 20px;
+    background-image: url("/assets/img/sinkingShip.gif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .navRes {
+    width: 0%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: -50%;
+    z-index: 2;
+    background-image: url("/assets/img/dark-wood.png");
+    background-color: #93d7dd;
+    transition: ease-in-out .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  .navResActive {
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0%;
+    z-index: 2;
+    background-image: url("/assets/img/dark-wood.png");
+    background-color: #93d7dd;
+    transition: .5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navPagesBurger {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  border: 2px solid red;
+  z-index: 2;
+}
+
+.pagesHome {
+  text-decoration: none;
+  text-align: center;
+  color: #534328;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Playfair;
+  width: 20%;
+  /* border: 2px solid black; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+
+.pagesPirate {
+  text-decoration: none;
+  text-align: center;
+  color: #534328;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Playfair;
+  width: 10%;
+  height: 20%;
+  /* border: 2px solid black; */
+  
+}
+.pagesFavoris {
+  text-decoration: none;
+  text-align: center;
+  color: #534328;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Playfair;
+  width: 40%;
+  /* border: 2px solid black; */
+  
+}
+.pagesMission {
+  text-decoration: none;
+  text-align: center;
+  color: #534328;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Playfair;
+  width: 60%;
+  /* border: 2px solid black; */
+  
+}
+.pagesConnexion {
+  text-decoration: none;
+  text-align: center;
+  color: #534328;
+  font-size: 17px;
+  font-weight: bold;
+  font-family: Playfair;
+  width: 30%;
+  /* border: 2px solid black; */
+  
+}
+
+.hiddenLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid black; */
+  width: 35%;
+  gap: 20px;
+}
+
+.scrollPanierBurger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.scrollPanierActiveBurger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  color: white;
+}
+.scrollPanierBurger:hover {
+color: white;
+}
+
+#bottleBurger {
+width: 35px;
+height: 35px;
+}
+
+.scrollPanierBurger img {
+  width: 25px;
+  height: 25px;
+}
+.scrollPanierActiveBurger img {
+  width: 25px;
+  height: 25px;
+}
+
+ /* media queries */
+
+
+ @media screen and (min-width: 425px) and (max-width: 767px) {
+  body{
+    width: 100%;
+  }
+
+  .navbar {
+    /* display: none; */
+    /* opacity: 0; */
+    width: 100%;
+  }
+
+  .navPages{
+    width: 45%;
+  }
+
+  .linkPagesSwitch {
+    width: 75%;
+  }
+
+  /* .switch {
+    --toggle-size: 0.45;
+  } */
+
+  .scrollPanier {
+    display: none;
+  }
+  .scrollPanierActive {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+
+  /* .navRes {
+    display: flex;
+  }
+  .navResActive {
+    display: flex;
+  } */
+
+}
+
+ @media screen and (min-width: 768px) and (max-width: 1023px) {
+  body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .homeCarouselLight {
+    width: 80%;
+  }
+  .homeCarouselDark {
+    width: 80%;
+  }
+
+  .navbar {
+    /* display: none; */
+    /* opacity: 0; */
+    width: 70%;
+  }
+
+  .navPages{
+    width: 45%;
+  }
+
+  .linkPagesSwitch {
+    width: 75%;
+  }
+
+  /* .switch {
+    --toggle-size: 0.45;
+  } */
+
+  .scrollPanier {
+    display: none;
+  }
+  .scrollPanierActive {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+
+  .navRes {
+    /* display: flex; */
+    width: 0%;
+  }
+  .navResActive {
+    /* display: flex; */
+    width: 70%;
+  }
+
+}
+ @media screen and (min-width: 1024px) and (max-width: 1439px) {
+  body{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+  }
+
+  .homeCarouselLight {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .homeCarouselDark {
+    width: 80%;
+  }
+
+  .navbar {
+    /* display: none; */
+    /* opacity: 0; */
+    width: 60%;
+  }
+
+  .navPages{
+    width: 45%;
+  }
+
+  .linkPagesSwitch {
+    width: 75%;
+  }
+
+  /* .switch {
+    --toggle-size: 0.45;
+  } */
+
+  .scrollPanier {
+    display: none;
+  }
+  .scrollPanierActive {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+
+  .navRes {
+    /* display: flex; */
+    width: 0%;
+  }
+  .navResActive {
+    /* display: flex; */
+    width: 60%;
+  }
+
+  .footerHome {
+    width: 70%;
+  }
+
+}

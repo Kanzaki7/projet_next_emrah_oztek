@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     /* border: 2px solid black; */
@@ -445,3 +446,120 @@
   }
   
   /* end footer */
+
+  /* modal login */
+
+.modalPseudo {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* overflow: auto; */
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-contentPseudo {
+    width: 65%;
+    height: 80%;
+    /* background-color: rgb(28, 26, 29); */
+    position: absolute;
+    top: 13%;
+    left: 18%;
+    border-radius: 10px;
+    /* border: 5px solid rgb(255, 255, 255); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    background-image: url("/assets/img/modalScroll.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .texteModalPseudo {
+    font-size: 22px;
+    color: #534328;
+    font-weight: bold;
+    font-family: Playfair;
+    text-align: center;
+    width: 30%;
+  }
+
+  .recrue {
+    text-decoration: underline;
+    color: red;
+  }
+
+  .bottleModal {
+    width: 125px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid black; */
+    
+  }
+
+  .bottleModal img {
+    width: 100%;
+    height: 100%;
+    
+  }
+  
+  .btnModalPseudo {
+    font-size: 23px;
+    font-weight: bold;
+    font-family: Playfair;
+    width: 250px;
+    height: 55px;
+    /* border: 1px solid black; */
+    text-align: center;
+    color: black;
+    transition: all ease-in-out 1s;
+    animation: textanimate .7s alternate infinite;
+    cursor: pointer;
+}
+
+  
+  
+  /* end modal login */
+
+  @media screen and (min-width: 767px) and (max-width: 1023px) {
+    .pirate{
+        flex-wrap: wrap;
+    }
+    .divWanted {
+        width: 90%;
+    }
+    .wantedPirate{
+        width: 90%;
+    }
+    .divPersoDesc {
+        width: 90%;
+    }
+    .desc {
+        width: 90%;
+    }
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    .pirate{
+        flex-wrap: wrap;
+    }
+    .divWanted {
+        width: 90%;
+    }
+    .wantedPirate{
+        width: 90%;
+    }
+    .divPersoDesc {
+        width: 90%;
+    }
+    .desc {
+        width: 90%;
+    }
+  }

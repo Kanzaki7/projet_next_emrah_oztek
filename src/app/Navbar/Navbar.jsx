@@ -6,6 +6,7 @@ import oneCrew from '../../../public/assets/img/one-crew.png'
 import Image from 'next/image'
 import { useSelector, useDispatch } from 'react-redux'
 import { toggleTheme } from '@/lib/features/themeSlice'
+import { burgerActive } from '@/lib/features/BurgerSlice'
 import { useState } from 'react'
 
 export default function Navbar() {
@@ -14,7 +15,8 @@ export default function Navbar() {
     const favoris = useSelector((state) => state.favorite.value)
     const connexion = useSelector((state) => state.auth.connexion)
     const user = useSelector((state) => state.auth.value)
-    const theme = useSelector((state) => state.theme.value)
+    // const theme = useSelector((state) => state.theme.value)
+    // const burger = useSelector((state) => state.burger.value)
     const [theClass, setTheClass] = useState("home")
  
 
@@ -32,7 +34,7 @@ export default function Navbar() {
                 {connexion === true &&
                     <div className='hiddenLinks'>
                         <Link href="/favoris" className='linkPagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
-                        <Link href="/comissions" className='linkPagesMission'><div className={theClass === "mission" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("mission")}><img src="/assets/img/parchmentIcon.png" alt="" /> Commissions({tableau.length})</div></Link>
+                        <Link href="/comissions" className='linkPagesMission'><div className={theClass === "mission" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("mission")}><img id='bottle' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
                     </div>
                 }
                 {connexion === true && <Link href="/login" className='linkPagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
@@ -57,8 +59,7 @@ export default function Navbar() {
                     </div>
                 </label>
             </div>
-            <div className='burgerMenu'>
-
+            <div className='burgerMenu' onClick={()=>dispatch(burgerActive())}>
             </div>
         </div>
     )

@@ -2,6 +2,7 @@
 
 import Navbar from "../Navbar/Navbar"
 import "../globals.css"
+import "./body.css"
 import { useSelector } from "react-redux"
 
 export default function Body({children}) {
@@ -11,7 +12,7 @@ export default function Body({children}) {
     return(
             <body className={theme === "light" ? "lightBody" : "darkBody"}>
                 <Navbar/>
-                <div className="navRes"></div>
+                {/* <div className="navRes"></div> */}
                 {children}
             </body>
     )

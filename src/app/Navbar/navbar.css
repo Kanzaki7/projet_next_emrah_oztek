@@ -163,6 +163,11 @@
   color: white;
 }
 
+#bottle {
+  width: 35px;
+  height: 35px;
+}
+
 .scrollPanier img {
     width: 25px;
     height: 25px;
@@ -781,6 +786,15 @@
     background-position: center;
     background-repeat: no-repeat;
   }
+  
+  .navPagesBurger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
 
   /* fin burger menu  */
 
@@ -821,4 +835,92 @@
     .burgerMenu {
       display: flex;
     }
+
+  
+  }
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    body{
+      width: 100%;
+    }
+    .divHome {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar {
+      /* display: none; */
+      /* opacity: 0; */
+      width: 100%;
+    }
+
+    .navPages{
+      width: 45%;
+    }
+
+    .linkPagesSwitch {
+      width: 75%;
+    }
+
+    /* .switch {
+      --toggle-size: 0.45;
+    } */
+
+    .scrollPanier {
+      display: none;
+    }
+    .scrollPanierActive {
+      display: none;
+    }
+
+    .burgerMenu {
+      display: flex;
+    }
+
+  
+  }
+  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+    body{
+      width: 100%;
+    }
+    .divHome {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .navbar {
+      /* display: none; */
+      /* opacity: 0; */
+      width: 70%;
+    }
+
+    .navPages{
+      width: 45%;
+    }
+
+    .linkPagesSwitch {
+      width: 75%;
+    }
+
+    /* .switch {
+      --toggle-size: 0.45;
+    } */
+
+    .scrollPanier {
+      display: none;
+    }
+    .scrollPanierActive {
+      display: none;
+    }
+
+    .burgerMenu {
+      display: flex;
+    }
+
+  
   }

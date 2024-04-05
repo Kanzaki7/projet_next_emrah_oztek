@@ -4,6 +4,7 @@ import TotalSlice from './features/TotalSlice';
 import FavoriteSlice from './features/FavoriteSlice';
 import AuthSlice from './features/AuthSlice';
 import themeSlice from './features/themeSlice';
+import BurgerSlice from './features/BurgerSlice';
 
 
 const store = configureStore({
@@ -12,7 +13,8 @@ const store = configureStore({
         total: TotalSlice,
         favorite: FavoriteSlice,
         auth: AuthSlice,
-        theme: themeSlice
+        theme: themeSlice,
+        burger: BurgerSlice,
     } 
 })
 

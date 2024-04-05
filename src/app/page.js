@@ -1,21 +1,27 @@
 "use client"
 
-import { useSelector } from "react-redux";
-// import styles from "./page.module.css";
+import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import Loading from './loading';
 import imgPerso from './imgPerso.json'
 import { useRouter } from "next/navigation";
+import Link from "next/link";
+// import ModalBurger from "./modalBurger/modalBurger";
 
 export default function Home() {
 
   const route = useRouter()
 
+  const connexion = useSelector((state) => state.auth.connexion)
+  const [theClass, setTheClass] = useState("home")
   const [trans, setTrans] = useState("caroussel2")
   const [activeSlide, setActiveSlide] = useState(2)
 
   const theme = useSelector((state) => state.theme.value)
-  // const dispatch = useDispatch()
+  const burger = useSelector((state) => state.burger.value)
+  const tableau = useSelector((state) => state.missions.value)
+  const favoris = useSelector((state) => state.favorite.value)
+  const dispatch = useDispatch()
 
     const [perso, setPerso] = useState([])
     const [filtPerso, setFiltPerso] = useState([])
@@ -44,7 +50,7 @@ export default function Home() {
             } else {
                 setDataState(false)
             }
-        }, 1000);
+        }, 3000);
     }, [])
 
     useEffect(() => {
@@ -178,7 +184,22 @@ export default function Home() {
     }
 
   return (
+    dataState === true ?
     <div className="divHome">
+      <div className={burger === false ? "navRes" : "navResActive"}>
+      <div className='navPagesBurger'>
+                    <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
+                    <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                    {connexion === true &&
+                        <div className='hiddenLinks'>
+                            <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
+                            <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                        </div>
+                    }
+                    {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                    {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                </div>
+      </div>
     {/* <div className="heroHome"></div> */}
       <div className={theme === "light" ? 'homeCarouselLight' : "homeCarouselDark"}>
         <div className='container'>
@@ -301,7 +322,7 @@ export default function Home() {
                         </div>
                     </div>
                 ))
-                ) : <Loading />
+                ) : null
                 }
       </div>
       <div className="footerHome">
@@ -326,6 +347,8 @@ export default function Home() {
                 <div>East Blue</div>
             </div>
         </div>
-    </div>
+        {/* <ModalBurger/> */}
+    </div> : <Loading/> 
+    
   );
 }
