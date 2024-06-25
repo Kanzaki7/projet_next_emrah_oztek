@@ -171,18 +171,24 @@ export default function Home() {
         };
     };
 
-    window.onscroll = () => {
-      let divWanted = document.querySelector(".wantedBest")
-      let top = window.scrollY;
-      let offset = divWanted.offsetTop - 150;
-      let height = divWanted.offsetHeight;
+    
 
-      if (top >= offset && top < offset + height) {
-        setDisplay(true)
-      } else {
-        setDisplay(false)
+    useEffect(() => {
+      if (typeof window !== 'undefined') {
+        window.onscroll = () => {
+          let divWanted = document.querySelector(".wantedBest")
+          let top = window.scrollY;
+          let offset = divWanted.offsetTop - 150;
+          let height = divWanted.offsetHeight;
+    
+          if (top >= offset && top < offset + height) {
+            setDisplay(true)
+          } else {
+            setDisplay(false)
+          }
+        }
       }
-    }
+    }, []);
 
   return (
     dataState === true ?
