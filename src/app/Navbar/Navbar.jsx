@@ -9,6 +9,7 @@ import { toggleTheme } from '@/lib/features/themeSlice'
 import { burgerActive } from '@/lib/features/BurgerSlice'
 import { useState } from 'react'
 
+
 export default function Navbar() {
 
     const tableau = useSelector((state) => state.missions.value)
@@ -29,12 +30,12 @@ export default function Navbar() {
                 <Image src={oneCrew} alt="" />
             </div>
             <div className='navPages'>
-                <Link href="/" className='linkPagesHome'><div className={theClass === "home" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
-                <Link href="/pirates" className='linkPagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                <Link href="/" className='linkPagesHome'><div className={theClass === "home" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
+                <Link href="/pirates" className='linkPagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
                 {connexion === true &&
                     <div className='hiddenLinks'>
-                        <Link href="/favoris" className='linkPagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
-                        <Link href="/comissions" className='linkPagesMission'><div className={theClass === "mission" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("mission")}><img id='bottle' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                        <Link href="/favoris" className='linkPagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
+                        <Link href="/comissions" className='linkPagesMission'><div className={theClass === "mission" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("mission")}><Image id='bottle' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
                     </div>
                 }
                 {connexion === true && <Link href="/login" className='linkPagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActive' : "scrollPanier"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
@@ -53,7 +54,7 @@ export default function Navbar() {
                         </div>
                         <div class="sand"></div>
                         <div class="bb8">
-                            <img className='sunny' src="/assets/img/sunny2.jpg" alt="" />
+                            <Image className='sunny' src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>
                             <div class="shadow"></div>
                         </div>
                     </div>

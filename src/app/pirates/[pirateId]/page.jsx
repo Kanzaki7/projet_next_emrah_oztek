@@ -14,6 +14,7 @@ import { addFavorite, deleteFavorite } from "@/lib/features/FavoriteSlice";
 import Link from "next/link";
 
 
+
 export default function Pirate({ params }) {
 
 
@@ -94,7 +95,7 @@ export default function Pirate({ params }) {
                     Une bouteille à la mer a été envoyé à <span className="recrue">{perso.name}</span> !
                 </div>
                 <div className="bottleModal">
-                    <img src="/assets/img/modalBottle.png" alt="" />
+                    <Image src="/assets/img/modalBottle.png" alt="" width={100} height={100}/>
                 </div>
                 <div type="btn" className="btnModalPseudo" id="no" onClick={()=>setModal(false)}>
                     Fermer
@@ -124,12 +125,12 @@ export default function Pirate({ params }) {
             }
               <div className={burger === false ? "navRes" : "navResActive"}>
                 <div className='navPagesBurger'>
-                                <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
-                                <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
+                                <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
                                 {connexion === true &&
                                     <div className='hiddenLinks'>
-                                        <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
-                                        <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                        <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
+                                        <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
                                     </div>
                                 }
                                 {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
@@ -171,7 +172,7 @@ export default function Pirate({ params }) {
                                     </div>
                                 }
                             </div>
-                            <div className={theme === "light" ? "bountyDescLight" : "bountyDescDark"}><span className="gras">Bounty:</span>  {perso.bounty} <img className="berry" src={"/assets/img/berry.jpg"} alt="" /></div>
+                            <div className={theme === "light" ? "bountyDescLight" : "bountyDescDark"}><span className="gras">Bounty:</span>  {perso.bounty} <Image className="berry" src={"/assets/img/berry.jpg"} alt="" width={70} height={70}/></div>
                             <div className={theme === "light" ? "crewLight" : "crewDark"}><span className="gras">Equipage:</span>  {perso.crew.name}</div>
                             {
                                 perso.fruit && <div className={theme === "light" ? "demonLight" : "demonDark"}><span className="gras">Fruit du démon:</span>  {perso.fruit.name}</div>
@@ -217,12 +218,12 @@ export default function Pirate({ params }) {
             </div>
             <div className='footDiv'>
                 <div className='footertitle'>Follow us</div>
-                <div className='divFootImg'><img src={"/assets/img/treasure.jpg"} alt="" /></div>
+                <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
             </div>
             <div className='footDiv'>
                 <div className='footertitle'>Syndicat des Pirates</div>
                 <div>Village de Fuchsia</div>
-                <div>L'Île de Dawn</div>
+                <div>L&apos;Île de Dawn</div>
                 <div>East Blue</div>
             </div>
         </div>  

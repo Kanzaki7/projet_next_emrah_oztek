@@ -49,7 +49,7 @@ export default function Register() {
 
     return(
         <div className='register'>
-            {account === "false" && <div>Veuillez entrer un nom d'utilisateur ou mot de passe valable !</div> }
+            {account === "false" && <div>Veuillez entrer un nom d&apos;utilisateur ou mot de passe valable !</div> }
             {account === "true" && 
             <div className='formRegister'>
                 <div>Bienvenue parmi nous, {user[0].name} !</div> 
@@ -61,7 +61,7 @@ export default function Register() {
                 <div>INSCRIPTION :</div>
                 <div className='formRegister'>
                     <div>
-                        <div>Nom d'utilisateur:</div>
+                        <div>Nom d&apos;utilisateur:</div>
                         <input type="text" value={inputNom} onChange={(e)=>captureInput(e)}/>
                     </div>
                     <div>

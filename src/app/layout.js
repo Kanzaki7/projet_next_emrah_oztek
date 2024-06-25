@@ -1,6 +1,7 @@
 import Body from "./Body/Body"
 import StoreProvider from "./StoreProvider"
 import './Body/body.css'
+import Accueil from "./page"
 
 
 export const metadata = {

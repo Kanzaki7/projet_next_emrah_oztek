@@ -6,7 +6,7 @@ import imgPerso from '../imgPerso.json'
 import { useState, useEffect } from 'react'
 import Loading from '../loading'
 import Link from 'next/link'
-
+import Image from 'next/image'
 
 
 export default function Favoris() {
@@ -45,12 +45,12 @@ export default function Favoris() {
         <div className='favorite'>
                                 <div className={burger === false ? "navRes" : "navResActive"}>
                         <div className='navPagesBurger'>
-                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
-                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
+                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
                                         {connexion === true &&
                                             <div className='hiddenLinks'>
-                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
-                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
+                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
                                             </div>
                                         }
                                         {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
@@ -60,11 +60,11 @@ export default function Favoris() {
             <div className='favoriteMapping'>
             {dataState === true ?
                 favorite.filter(l => l.favorite === true).map((pers, index) => (
-                        <div className='wantedWrapper'>
+                        <div className='wantedWrapper' key={index}>
                             <div key={index} className="wanted">
                                 {
                                     imgPerso.map((imgP, index) => (
-                                    pers.id === imgP.id ? <img key={index} className="imgPerso" src={imgP.img} alt=""/>:null 
+                                    pers.id === imgP.id ? <Image key={index} className="imgPerso" src={imgP.img} alt="" width={2450} height={180}/>:null 
                                     ))
                                 }
                                 <div className="nameWanted">
@@ -94,12 +94,12 @@ export default function Favoris() {
             </div>
             <div className='footDiv'>
                 <div className='footertitle'>Follow us</div>
-                <div className='divFootImg'><img src={"/assets/img/treasure.jpg"} alt="" /></div>
+                <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
             </div>
             <div className='footDiv'>
                 <div className='footertitle'>Syndicat des Pirates</div>
                 <div>Village de Fuchsia</div>
-                <div>L'Île de Dawn</div>
+                <div>L&apos;Île de Dawn</div>
                 <div>East Blue</div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useState } from 'react'
 import { trueUser, falseUser, deleteUser } from '@/lib/features/AuthSlice'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Login() {
 
@@ -64,12 +65,12 @@ export default function Login() {
         <div className='login'>
                       <div className={burger === false ? "navRes" : "navResActive"}>
                         <div className='navPagesBurger'>
-                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><img src="/assets/img/sunny2.jpg" alt="" />Home</div></Link>
-                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><img src="/assets/img/skullIcon.png" alt="" /> Pirates</div></Link>
+                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
+                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
                                         {connexion === true &&
                                             <div className='hiddenLinks'>
-                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><img src="/assets/img/etoile.png" alt="" /> Favoris({favoris.length})</div></Link>
-                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><img id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" /> Commissions({tableau.length})</div></Link>
+                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
+                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50} /> Commissions({tableau.length})</div></Link>
                                             </div>
                                         }
                                         {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
@@ -79,12 +80,12 @@ export default function Login() {
         {
             connexion === false &&
             <div className='formLogin'>
-            {connexionState === "non-exist" && <div>Le nom d'utilisateur n'existe pas !</div> }
-            {connexionState === "false" && <div>Le nom d'utilisateur ou le mot de passe ne correspondent pas !</div> }
+            {connexionState === "non-exist" && <div>Le nom d&apos;utilisateur n&apos;existe pas !</div> }
+            {connexionState === "false" && <div>Le nom d&apos;utilisateur ou le mot de passe ne correspondent pas !</div> }
                 <div>CONNEXION :</div>
                 <div className='formLogin'>
                     <div>
-                        <div>Nom d'utilisateur:</div>
+                        <div>Nom d&apos;utilisateur:</div>
                         <input type="text" value={nomConnect} onChange={(e)=>captureInput(e)}/>
                     </div>
                     <div>
