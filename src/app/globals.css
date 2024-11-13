@@ -735,6 +735,7 @@ p {
     /* border: 2px solid red; */
     position: absolute;
     top: 0px;
+    z-index: 1000;
   }
 
   .burgerMenuBones {
