@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react'
 import Loading from '../loading'
 import Link from 'next/link'
 import Image from 'next/image'
+import { burgerActive } from '@/lib/features/BurgerSlice'
 
 
 export default function Favoris() {
@@ -43,20 +44,23 @@ export default function Favoris() {
     return(
         dataState === true ?
         <div className='favorite'>
-                                <div className={burger === false ? "navRes" : "navResActive"}>
-                        <div className='navPagesBurger'>
-                                        <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
-                                        <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
-                                        {connexion === true &&
-                                            <div className='hiddenLinks'>
-                                                <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
-                                                <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
-                                            </div>
-                                        }
-                                        {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
-                                        {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
-                                    </div>
+            <div className={burger === false ? "navRes" : "navResActive"}>
+                <div className='burgerMenuDiv'>    
+                    <div className='burgerMenuBones' onClick={()=>dispatch(burgerActive())}></div>
+                </div>
+                <div className='navPagesBurger'>
+                    <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
+                    <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
+                    {connexion === true &&
+                        <div className='hiddenLinksBurger'>
+                            <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
+                            <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
                         </div>
+                    }
+                    {connexion === true && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connected as {user[0].name}</div></Link> }
+                    {connexion === false && <Link href="/login" className='pagesConnexion'><div className={theClass === "connexion" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("connexion")}>Connexion/Inscription</div></Link>}
+                </div>
+            </div>
             <div className='favoriteMapping'>
             {dataState === true ?
                 favorite.filter(l => l.favorite === true).map((pers, index) => (
@@ -82,27 +86,27 @@ export default function Favoris() {
                 } */}
             </div>
             <div className="footerHome">
-            <div className='footDiv'>
-                <div className='footertitle'>Informations</div>
-                <div>Hall of Fame</div>
-                <div>Nouvelles primes</div>
+                <div className='footDiv'>
+                    <div className='footertitle' id="info">Informations</div>
+                    <div className='footerLink'>Hall of Fame</div>
+                    <div className='footerLink'>Nouvelles primes</div>
+                </div>
+                <div className='footDiv'>
+                    <div className='footertitle'>My Account</div>
+                    <div className='footerLink'>My missions</div>
+                    <div className='footerLink'>Contact us</div>
+                </div>
+                <div className='footDiv' id="follow">
+                    <div className='footertitle'>Follow us</div>
+                    <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
+                </div>
+                <div className='footDiv' id="follow2">
+                    <div className='footertitle'>Syndicat des Pirates</div>
+                    <div className='footerLink'>Village de Fuchsia</div>
+                    <div className='footerLink'>L&apos;Île de Dawn</div>
+                    <div className='footerLink'>East Blue</div>
+                </div>
             </div>
-            <div className='footDiv'>
-                <div className='footertitle'>My Account</div>
-                <div>My missions</div>
-                <div>Contact us</div>
-            </div>
-            <div className='footDiv'>
-                <div className='footertitle'>Follow us</div>
-                <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
-            </div>
-            <div className='footDiv'>
-                <div className='footertitle'>Syndicat des Pirates</div>
-                <div>Village de Fuchsia</div>
-                <div>L&apos;Île de Dawn</div>
-                <div>East Blue</div>
-            </div>
-        </div>
         </div> : <Loading/>
     )
 }

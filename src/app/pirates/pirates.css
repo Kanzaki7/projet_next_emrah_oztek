@@ -17,7 +17,7 @@
 
 .mapping {
     width: 100%;
-    height: 100%;
+    height: 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -29,7 +29,7 @@
 
 .pirates {
     width: 80%;
-    /* height: 80%; */
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -391,3 +391,24 @@
   }
   
   /* end footer */
+
+
+
+
+  /* Responsiveness  */
+
+@media screen and (max-width: 600px) {
+    .search {
+        width: 240px;
+        height: 40px;
+    }
+    
+    .filter {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    
+    }
+}

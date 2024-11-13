@@ -16,7 +16,7 @@
 }
 
 .navbar {
-    width: 83%;
+    width: 100%;
     height: 10%;
     display: flex;
     flex-direction: row;
@@ -37,7 +37,7 @@
 
 
 .navLogo {
-    width: 25%;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -54,7 +54,7 @@
 }
 
 .navPages {
-    width: 75%;
+    width: 70%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -779,12 +779,13 @@
 
   .burgerMenu {
     display: none;
-    width: 20%;
-    height: 100%;
-    background-image: url("/assets/img/bones.png");
+    width: 15%;
+    height: 65px;
+    background-image: url("/assets/img/anchor.png");
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    cursor: pointer;
   }
   
   .navPagesBurger {
@@ -881,7 +882,7 @@
 
   
   }
-  @media screen and (min-width: 1024px) and (max-width: 1439px) {
+  @media screen and (max-width: 1200px) {
     body{
       width: 100%;
     }
@@ -896,7 +897,7 @@
     .navbar {
       /* display: none; */
       /* opacity: 0; */
-      width: 70%;
+      width: 100%;
     }
 
     .navPages{

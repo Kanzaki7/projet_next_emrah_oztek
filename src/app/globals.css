@@ -17,7 +17,7 @@
 
 .lightBody {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -34,10 +34,46 @@
 }
 .darkBody {
     width: 100vw;
-    height: 100vh;
+    /* height: 100vh; */
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    background-image: url("/assets/img/dark-wood.png");
+    background-color: #052429;
+    /* background-color: #e4b015; */
+    transition: ease-in-out .5s;
+}
+.lightBodyOverflow {
+    width: 100vw;
+    /* height: 100vh; */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    box-sizing: border-box;
+    background-image: url("/assets/img/dark-wood.png");
+    /* background-color: #052429; */
+    background-color: #e4b015;
+    transition: ease-in-out .5s;
+}
+.darkBodyOverflow {
+    width: 100vw;
+    /* height: 100vh; */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -66,7 +102,7 @@
 } */
 
 .homeCarouselLight {
-    width: 95vw;
+    width: 100%;
     border: 10px solid red;
     border-image: repeating-linear-gradient(40deg, hsl(30, 50%, 15%), hsl(20, 50%, 30%), hsl(25, 40%, 20%) 8px) 60;
     border-radius: 5px;
@@ -82,7 +118,7 @@
     background-position: center;
 }
 .homeCarouselDark {
-    width: 95vw;
+    width: 100%;
     /* height: 100%; */
     border: 10px solid red;
     border-image: repeating-linear-gradient(40deg, hsl(30, 50%, 15%), hsl(20, 50%, 30%), hsl(25, 40%, 20%) 8px) 60;
@@ -463,14 +499,14 @@ p {
 .footerHome {
     color: #534328;
     font-family: PlayfairBold;
-    width: 102vw;
+    /* width: 102vw; */
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: start;
     /* background-color: rgb(20, 24, 19); */
     /* border: 2px solid black; */
-    gap: 70px;
+    gap: 60px;
     margin: 0;
     background-image: url("/assets/img/scrollNav.png");
     background-size: cover;
@@ -484,7 +520,7 @@ p {
 }
 
 .footDiv{
-    width: 19%;
+    width: 200px;
     /* height: 70%; */
     /* border: 2px solid blue; */
     margin-top: 50px;
@@ -498,6 +534,9 @@ p {
   .footertitle {
     font-size: 30px;
     margin-bottom: 10px;
+  }
+  .footerLink {
+    font-size: 15px;
   }
   
   .divFootImg {
@@ -687,9 +726,31 @@ p {
     background-position: center;
   }
 
+  .burgerMenuDiv {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    /* border: 2px solid red; */
+    position: absolute;
+    top: 0px;
+  }
+
+  .burgerMenuBones {
+    width: 65px;
+    height: 65px;
+    background-image: url("/assets/img/bones.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    margin-right: 70px;
+  }
+
   .navRes {
     width: 0%;
-    height: 100%;
+    height: 100vh;
     position: absolute;
     top: 0px;
     left: -50%;
@@ -700,10 +761,11 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
   .navResActive {
-    width: 80%;
-    height: 100%;
+    width: 100%;
+    height: 100vh;
     position: absolute;
     top: 0px;
     left: 0%;
@@ -712,18 +774,32 @@ p {
     background-color: #93d7dd;
     transition: .5s ease-in-out;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .navPagesBurger {
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  z-index: 2;
+}
+
+.hiddenLinksBurger {
+  width: 100%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  /* border: 2px solid red; */
   z-index: 2;
 }
 
@@ -833,166 +909,106 @@ height: 35px;
   height: 25px;
 }
 
- /* media queries */
+ 
+@media screen and (max-width: 1300px) {
 
 
- @media screen and (min-width: 425px) and (max-width: 767px) {
-  body{
-    width: 100%;
+  #follow2 {
+    margin-bottom: 100px;
+  }
+}
+@media screen and (max-width: 700px) {
+
+  .searchBar {
+    width: 90%;
   }
 
-  .navbar {
-    /* display: none; */
-    /* opacity: 0; */
-    width: 100%;
+  #follow {
+    margin-bottom: 100px;
   }
 
-  .navPages{
-    width: 45%;
-  }
 
-  .linkPagesSwitch {
-    width: 75%;
-  }
-
-  /* .switch {
-    --toggle-size: 0.45;
-  } */
-
-  .scrollPanier {
-    display: none;
-  }
-  .scrollPanierActive {
-    display: none;
-  }
-
-  .burgerMenu {
+  .caroussel0 {
+    width: 2000px;
+    height: 450px;
     display: flex;
+    /* overflow: hidden; */
+    transition: 1s ease;
+    transform: translateX(590px);
+    /* gap: 30px; */
+    /* background-color: brown; */
+    /* border: 2px solid green;  */
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    
+  }
+  .caroussel1 {
+      width: 2000px;
+      height: 450px;
+      display: flex;
+      /* overflow: hidden; */
+      transition: 1s ease;
+      transform: translateX(310px);
+      /* gap: 30px; */
+      /* background-color: brown; */
+      /* border: 2px solid green;  */
+      perspective: 1000px;
+      transform-style: preserve-3d;
+  }
+  .caroussel2 {
+      width: 2000px;
+      height: 450px;
+      display: flex;
+      /* overflow: hidden; */
+      transition: 1s ease;
+      transform: translateX(0px);
+      /* gap: 30px; */
+      /* background-color: brown; */
+      /* border: 2px solid green;  */
+      perspective: 1000px;
+      transform-style: preserve-3d;
+  }
+  .caroussel3 {
+      width: 2000px;
+      height: 450px;
+      display: flex;
+      /* overflow: hidden; */
+      transition: 1s ease;
+      transform: translateX(-310px);
+      /* gap: 30px; */
+      /* background-color: brown; */
+      /* border: 2px solid green;  */
+      perspective: 1000px;
+      transform-style: preserve-3d;
+  }
+  .caroussel4 {
+      width: 2000px;
+      height: 450px;
+      display: flex;
+      /* overflow: hidden; */
+      transition: 1s ease;
+      transform: translateX(-590px);
+      /* gap: 30px; */
+      /* background-color: brown; */
+      /* border: 2px solid green;  */
+      perspective: 1000px;
+      transform-style: preserve-3d;
   }
 
-  /* .navRes {
-    display: flex;
+  .hallLight {
+    font-size: 55px;
+    font-family: PlayfairBold;
+    color: black;
   }
-  .navResActive {
-    display: flex;
-  } */
-
+  .hallDark {
+      font-size: 55px;
+      font-family: PlayfairBold;
+      color: white;
+  }
 }
 
- @media screen and (min-width: 768px) and (max-width: 1023px) {
-  body{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
+@media screen and (max-width: 600px) {
+  #info {
+    margin-top: 150px;
   }
-
-  .homeCarouselLight {
-    width: 80%;
-  }
-  .homeCarouselDark {
-    width: 80%;
-  }
-
-  .navbar {
-    /* display: none; */
-    /* opacity: 0; */
-    width: 70%;
-  }
-
-  .navPages{
-    width: 45%;
-  }
-
-  .linkPagesSwitch {
-    width: 75%;
-  }
-
-  /* .switch {
-    --toggle-size: 0.45;
-  } */
-
-  .scrollPanier {
-    display: none;
-  }
-  .scrollPanierActive {
-    display: none;
-  }
-
-  .burgerMenu {
-    display: flex;
-  }
-
-  .navRes {
-    /* display: flex; */
-    width: 0%;
-  }
-  .navResActive {
-    /* display: flex; */
-    width: 70%;
-  }
-
-}
- @media screen and (min-width: 1024px) and (max-width: 1439px) {
-  body{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-  }
-
-  .homeCarouselLight {
-    width: 80%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .homeCarouselDark {
-    width: 80%;
-  }
-
-  .navbar {
-    /* display: none; */
-    /* opacity: 0; */
-    width: 60%;
-  }
-
-  .navPages{
-    width: 45%;
-  }
-
-  .linkPagesSwitch {
-    width: 75%;
-  }
-
-  /* .switch {
-    --toggle-size: 0.45;
-  } */
-
-  .scrollPanier {
-    display: none;
-  }
-  .scrollPanierActive {
-    display: none;
-  }
-
-  .burgerMenu {
-    display: flex;
-  }
-
-  .navRes {
-    /* display: flex; */
-    width: 0%;
-  }
-  .navResActive {
-    /* display: flex; */
-    width: 60%;
-  }
-
-  .footerHome {
-    width: 70%;
-  }
-
 }

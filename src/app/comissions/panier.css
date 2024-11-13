@@ -5,7 +5,7 @@
 
 .panier {
     width: 80%;
-    height: 80%;
+    height: 80vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -40,7 +40,7 @@
 }
 
 .tableau {
-    width: 675px;
+    width: 100%;
     height: 80px;
     /* border: 2px solid black; */
     display: flex;
@@ -58,7 +58,7 @@
     box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 .supprimé {
-    width: 675px;
+    width: 100%;
     height: 80px;
     /* border: 2px solid black; */
     display: flex;
@@ -88,7 +88,7 @@
 }
 
 .divTab {
-    width: 140px;
+    width: 20%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -97,7 +97,7 @@
 }
 
 .divTabSmall {
-    width: 70px;
+    width: 10%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -107,11 +107,11 @@
 
 .divTabScroll {
     rotate: 90deg;
-    background-image: url("/assets/img/scroll.png");
+    background-image: url(/assets/img/scroll.png);
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 100px;
+    width: 15%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -125,7 +125,7 @@
     position: absolute;
     top: 5%;
     left: 40%;
-    width: 20px;
+    width: 5%;
     height: 20px;
     background-color: rgb(17, 17, 117);
     color: white;
@@ -140,7 +140,7 @@
     position: absolute;
     top: 60%;
     left: 40%;
-    width: 20px;
+    width: 5%;
     height: 20px;
     background-color: rgb(143, 17, 17);
     color: white;
@@ -155,7 +155,7 @@
     cursor: pointer;
     width: 50px;
     height: 50px;
-    background-image: url("/assets/img/bones.png");
+    background-image: url(/assets/img/bones.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -172,7 +172,7 @@
 }
 
 .contrat {
-    width: 37%;
+    width: 390px;
     height: 100%;
     /* background-color: red; */
     background-image: url(/assets/img/contractScroll.png);
@@ -285,7 +285,7 @@
 }
 
 .stamp{
-    background-image: url("/assets/img/waxStamp.png");
+    background-image: url(/assets/img/waxStamp.png);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -365,4 +365,27 @@
 .totalDark {
     color: white;
     font-size: 20px;
+}
+
+
+@media screen and (max-width: 1200px) {
+    .panier {
+        width: 100%;
+        height: 160vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid black; */
+        gap: 50px;
+    }
+
+    .cartTab {
+        width: 95%;
+        height: 50%;
+    }
+
+    .contrat {
+        height: 50%;
+    }
 }

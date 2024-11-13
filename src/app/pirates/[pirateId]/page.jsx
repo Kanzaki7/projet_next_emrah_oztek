@@ -11,6 +11,7 @@ import Image from "next/image";
 import { addCart } from "@/lib/features/MissionsSlice";
 import { addTotal } from "@/lib/features/TotalSlice";
 import { addFavorite, deleteFavorite } from "@/lib/features/FavoriteSlice";
+import { burgerActive } from '@/lib/features/BurgerSlice'
 import Link from "next/link";
 
 
@@ -87,7 +88,7 @@ export default function Pirate({ params }) {
     }
 
     return(
-        <div className="pirates">
+        <div className="piratesID">
             {modal === true && 
                 <div className="modalPseudo">
             <div className="modal-contentPseudo">
@@ -124,11 +125,14 @@ export default function Pirate({ params }) {
         </div>
             }
               <div className={burger === false ? "navRes" : "navResActive"}>
+                <div className='burgerMenuDiv'>    
+                    <div className='burgerMenuBones' onClick={()=>dispatch(burgerActive())}></div>
+                </div>
                 <div className='navPagesBurger'>
                                 <Link href="/" className='pagesHome'><div className={theClass === "home" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("home")}><Image src="/assets/img/sunny2.jpg" alt="" width={50} height={50}/>Home</div></Link>
                                 <Link href="/pirates" className='pagesPirate'><div className={theClass === "pirate" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("pirate")}><Image src="/assets/img/skullIcon.png" alt="" width={50} height={50}/> Pirates</div></Link>
                                 {connexion === true &&
-                                    <div className='hiddenLinks'>
+                                    <div className='hiddenLinksBurger'>
                                         <Link href="/favoris" className='pagesFavoris'><div className={theClass === "favoris" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("favoris")}><Image src="/assets/img/etoile.png" alt="" width={50} height={50}/> Favoris({favoris.length})</div></Link>
                                         <Link href="/comissions" className='pagesMission'><div className={theClass === "mission" ? 'scrollPanierActiveBurger' : "scrollPanierBurger"} onClick={()=>setTheClass("mission")}><Image id='bottleBurger' src="/assets/img/bottle2.jpg" alt="" width={50} height={50}/> Commissions({tableau.length})</div></Link>
                                     </div>
@@ -157,7 +161,7 @@ export default function Pirate({ params }) {
                             <div className="bountyWantedPirate">{perso.bounty}</div>
                         </div>
                     </div>
-                    <div className="divPersoDesc">
+                    <div className={theme === "light" ? "divPersoDescLight" : "divPersoDescDark"}>
                         <div className="desc">
                             <div className="nameStar">
                                 <div className={theme === "light" ? "nameDescLight" : "nameDescDark"}>{perso.name.toUpperCase()}</div>
@@ -206,27 +210,27 @@ export default function Pirate({ params }) {
                 ) : <Loading />
             }
             <div className="footerHome">
-            <div className='footDiv'>
-                <div className='footertitle'>Informations</div>
-                <div>Hall of Fame</div>
-                <div>Nouvelles primes</div>
-            </div>
-            <div className='footDiv'>
-                <div className='footertitle'>My Account</div>
-                <div>My missions</div>
-                <div>Contact us</div>
-            </div>
-            <div className='footDiv'>
-                <div className='footertitle'>Follow us</div>
-                <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
-            </div>
-            <div className='footDiv'>
-                <div className='footertitle'>Syndicat des Pirates</div>
-                <div>Village de Fuchsia</div>
-                <div>L&apos;Île de Dawn</div>
-                <div>East Blue</div>
-            </div>
-        </div>  
+                <div className='footDiv'>
+                    <div className='footertitle'>Informations</div>
+                    <div className='footerLink'>Hall of Fame</div>
+                    <div className='footerLink'>Nouvelles primes</div>
+                </div>
+                <div className='footDiv'>
+                    <div className='footertitle'>My Account</div>
+                    <div className='footerLink'>My missions</div>
+                    <div className='footerLink'>Contact us</div>
+                </div>
+                <div className='footDiv' id="follow">
+                    <div className='footertitle'>Follow us</div>
+                    <div className='divFootImg'><Image src={"/assets/img/treasure.jpg"} alt="" width={175} height={130}/></div>
+                </div>
+                <div className='footDiv' id="follow2">
+                    <div className='footertitle'>Syndicat des Pirates</div>
+                    <div className='footerLink'>Village de Fuchsia</div>
+                    <div className='footerLink'>L&apos;Île de Dawn</div>
+                    <div className='footerLink'>East Blue</div>
+                </div>
+            </div>  
     </div>
     )
 }

@@ -9,8 +9,8 @@
     display: none;
 }
 
-@media screen and (min-width: 425px) and (max-width: 767) {
+/* @media screen and (min-width: 425px) and (max-width: 767) {
     .navRes {
         display: block;
     }
-} */
+}  */
