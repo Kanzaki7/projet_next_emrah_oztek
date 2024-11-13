@@ -499,7 +499,7 @@ p {
 .footerHome {
     color: #534328;
     font-family: PlayfairBold;
-    /* width: 102vw; */
+    width: 102vw;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
